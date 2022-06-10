@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { logoutInitate } from "../redux/redusers/actions";
 import { currentUserSelector } from "../redux/redusers/selectors";
 
-const Home = () => {
+const HomePage = () => {
     const user = useSelector(currentUserSelector)
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -26,4 +26,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default HomePage;

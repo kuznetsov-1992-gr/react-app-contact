@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { loginInitiate } from "../redux/redusers/actions";
 import { currentUserSelector } from "../redux/redusers/selectors";
 
-const Login = () => {
+const LoginPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -48,4 +48,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default LoginPage;

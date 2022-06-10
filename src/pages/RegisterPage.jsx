@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { registerInitiate } from "../redux/redusers/actions";
 import { currentUserSelector } from "../redux/redusers/selectors";
-import Header from './Header'
 
-const Register = () => {
+
+const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('')
@@ -33,7 +33,7 @@ const Register = () => {
 
     return(
         <div>
-            <Header  />
+            
             <NavLink style={{fontSize: 30, textDecoration: 'none', color: 'white'}} to={'/login'} />
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
@@ -48,4 +48,4 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default RegisterPage;
