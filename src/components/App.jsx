@@ -8,6 +8,7 @@ import AboutPage from "../pages/AboutPage"
 import Loyout from "./Loyout";
 import ProtectedRoures from "./ProtectedRoutes";
 import AddContactPage from "../pages/AddContactPage";
+import View from '../components/View'
 
 
 
@@ -26,6 +27,16 @@ function App() {
         <Route path={'/addContact'} element={
           <ProtectedRoures>
             <AddContactPage/>
+          </ProtectedRoures>
+        }/>
+         <Route path={'/update/:id'} element={
+          <ProtectedRoures>
+            <AddContactPage/>
+          </ProtectedRoures>
+        }/>
+         <Route path={'/view/:id'} element={
+          <ProtectedRoures>
+            <View/>
           </ProtectedRoures>
         }/>
         <Route path={'/login'} element={<LoginPage/>}/>

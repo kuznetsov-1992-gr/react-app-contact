@@ -1,27 +1,83 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { logoutInitate } from "../redux/redusers/actions";
-import { currentUserSelector } from "../redux/redusers/selectors";
+import React, { useEffect, useState } from "react";
+
+
+import {db as firebaseDB} from '../firebase'
+import {Link} from 'react-router-dom';
+import { toast } from "react-toastify";
 
 const HomePage = () => {
-    const user = useSelector(currentUserSelector)
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
-    const handleAuth = () => {
-        if(user){
-            dispatch(logoutInitate())
+
+    const [data, setData] = useState({});
+
+    useEffect(data =>{
+        firebaseDB.child(`contacts`).on(`value`, snapshot => {
+            if(snapshot.val() !== null){
+                setData({...snapshot.val()})
+            }else{
+                setData({})
+            }
+        });
+
+        return () => {
+            setData({});
         }
-        setTimeout(()=> {
-            navigate('/login')
-        }, 3000)
-   
+    },[])
+
+    const onDelite = (id) => {
+        if(
+            window.confirm('Are you sure?')
+        ){
+            firebaseDB.child(`contacts/${id}`).remove(err => {
+                if(err){
+                    toast.error(err);
+                }else{
+                    toast.success(`Contact deleted successfully`)
+                }
+            })
+        }
     }
 
     return(
         <div>
-            <h2>home</h2>
-            <button onClick={handleAuth}> OUT LOGIN</button>
+           <table>
+                <thead>
+                    <tr>
+                       <th>No.</th>
+                       <th>Name</th>
+                       <th>Email</th>
+                       <th>Contact</th>
+                       <th>Action</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(data).map((id, index)=>{
+                        return(
+                           <tr key={id}>
+                                <th scope="row">{index + 1}</th>
+                                <td>{data[id].name}</td>
+                                <td>{data[id].email}</td>
+                                <td>{data[id].contact}</td>
+                                <td>
+                                    <Link to={`/update/${id}`}>
+                                        <button >
+                                            Edit
+                                        </button>
+                                        <button onClick={()=>onDelite(id)}>
+                                            delite
+                                        </button>
+                                        <Link to={`/view/${id}`}>
+                                            <button >
+                                                View
+                                            </button>
+                                        </Link>
+                                    </Link>
+                                </td>
+
+                           </tr> 
+                        )
+                    })}
+                </tbody>
+           </table>
         </div>
     )
 }

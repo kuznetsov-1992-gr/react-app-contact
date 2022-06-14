@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutInitate } from "../redux/redusers/actions";
 import { currentUserSelector } from "../redux/redusers/selectors";
+import CastomLink from "./CastomLink";
 
 
 const Header = () => {
@@ -26,13 +27,13 @@ const Header = () => {
                <p>Contact App</p>
            </Link>
            <div>
-               <Link to={'/'}>Home</Link>
-               <Link to={'/addContact'}>Add Contact</Link>
+               <CastomLink to={'/'}>Home</CastomLink>
+               <CastomLink to={'/addContact'}>Add Contact</CastomLink>
                <Link to={'/about'}>About</Link>
                {user ? (
                     <p style={{cursor: 'pointer'}} onClick={handleAuth}> Sign Out</p>
                ) : (
-                   <Link to={'/login'}>Sign in</Link>
+                   <CastomLink to={'/login'}>Sign in</CastomLink>
                )}
            </div>
        </div>

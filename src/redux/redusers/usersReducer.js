@@ -18,7 +18,7 @@ const usersReduser = (state = initialStete, action) => {
                 loading: true
             }
         case types.REGISTER_SUCCESS:
-        case types.LOGIN_START:    
+        case types.LOGIN_SUCCESS:   
             return {
                 ...state,
                 currentUser: action.payload,
