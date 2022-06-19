@@ -1,0 +1,24 @@
+.lbl-input{
+    color: blue;
+    font-size: 20px;
+}
+.input-add{
+    margin-left: 20px;
+    width: 400px;
+    padding: 10px 20px
+    
+}
+ .position{
+    display: flex;
+    justify-content: space-around;
+    
+ }
+.btn-save{
+    padding: 10px 40px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    background-color: green;
+    margin-top: 20px;
+
+}

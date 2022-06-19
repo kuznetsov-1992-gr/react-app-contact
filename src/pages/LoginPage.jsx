@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginInitiate } from "../redux/redusers/actions";
 import { currentUserSelector } from "../redux/redusers/selectors";
+import './AddContactStyle.css'
 
-const Login = () => {
+const LoginPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -39,13 +40,13 @@ const Login = () => {
         <div>
             <h2>LOGIN</h2>
             
-            <form onSubmit={handlSubmit}>
-                <input placeholder="mail" type="text" value={email}  onChange={e => setEmail(e.target.value)}/>
-                <input placeholder="password" type="text" value={password} onChange={e => setPassword(e.target.value)}/>
-                <input type="submit" />
+            <form style={{display: 'block', justifyContent: 'space-around'}} onSubmit={handlSubmit}>
+                <input className="input-add" placeholder="mail" type="text" value={email}  onChange={e => setEmail(e.target.value)}/>
+                <input className="input-add" placeholder="password" type="text" value={password} onChange={e => setPassword(e.target.value)}/>
+                <input className="btn-save" type="submit" />
             </form>
         </div>
     )
 }
 
-export default Login;
+export default LoginPage;

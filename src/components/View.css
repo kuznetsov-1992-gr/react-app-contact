@@ -1,0 +1,27 @@
+.view-margin{
+    margin-top: 20px;
+}
+.view-block{
+    border: 1px solid black;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.link-position{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.beck-link{
+    border: none;
+    padding: 10px;
+    text-decoration: none;
+    background-color: pink;
+    color: white;
+    font-size: 20px;
+    
+}
+.beck-link:hover{
+    background-color: red;
+    transform: scale(1.2, 1.2);
+}

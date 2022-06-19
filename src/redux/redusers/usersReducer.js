@@ -18,7 +18,7 @@ const usersReduser = (state = initialStete, action) => {
                 loading: true
             }
         case types.REGISTER_SUCCESS:
-        case types.LOGIN_START:    
+        case types.LOGIN_SUCCESS:   
             return {
                 ...state,
                 currentUser: action.payload,
@@ -45,17 +45,6 @@ const usersReduser = (state = initialStete, action) => {
     }
 }
 
-// export const loadUser = () => {
-//     return async dispatch => {
-//         dispatch(loadingUsersReducer())
-//         try{
-//         const response = await fetch('https://jsonplaceholder.typicode.com/users');
-//         const data = await response.json();
-//         dispatch(getUsersReducer(data))
-//         }catch(answerError){
-//             dispatch(errorUsersReducer(answerError))
-//         }
-//     }
-// }
+
 
 export default usersReduser;

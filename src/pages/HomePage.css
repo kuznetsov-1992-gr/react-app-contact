@@ -1,0 +1,29 @@
+.home-position{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-edit{
+    border: none;
+    background-color: rgba(106, 106, 218, 0.137);
+    padding: 10px 10px;
+    margin: 10px;
+}
+
+.btn-delite{
+    border: none;
+    background-color: red;
+    padding: 10px 10px;
+    margin: 10px;
+}
+.btn-view{
+    border: none;
+    background-color: rgb(88, 230, 88);
+    padding: 10px 10px;
+    margin: 10px;
+}
+.adress-true{
+    background-color: rgb(235, 247, 203);
+    
+}
