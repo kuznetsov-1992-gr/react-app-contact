@@ -5,6 +5,10 @@ import { logoutInitate } from "../redux/redusers/actions";
 import { currentUserSelector } from "../redux/redusers/selectors";
 import CastomLink from "./CastomLink";
 
+import './Header.css'
+
+
+
 
 const Header = () => {
     const user = useSelector(currentUserSelector);
@@ -22,20 +26,20 @@ const Header = () => {
 
 
     return(
-       <div>
-           <Link to={'/'}>
+       <div className="header">
+           <Link className="logo" to={'/'}>
                <p>Contact App</p>
            </Link>
-           <div>
-               <CastomLink to={'/'}>Home</CastomLink>
-               <CastomLink to={'/addContact'}>Add Contact</CastomLink>
-               <Link to={'/about'}>About</Link>
+           <nav className="nav-link">
+               
+               <CastomLink  to={'/addContact'}>Add Contact</CastomLink>
+               <CastomLink  to={'/about'}>About</CastomLink>
                {user ? (
-                    <p style={{cursor: 'pointer'}} onClick={handleAuth}> Sign Out</p>
+                    <p className="out-link"  onClick={handleAuth}> Sign Out</p>
                ) : (
-                   <CastomLink to={'/login'}>Sign in</CastomLink>
+                   <CastomLink  to={'/login'}>Sign in</CastomLink>
                )}
-           </div>
+           </nav>
        </div>
         
     )

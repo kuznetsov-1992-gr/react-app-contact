@@ -8,7 +8,7 @@ const CastomLink = ({to, children}) =>{
     const match = useMatch(to);
 
     return(
-        <Link to={to} className={match ? 'active' : ''} >
+        <Link to={to} className={match ? 'active' : 'link'} >
             <p >
                 {children}
             </p>

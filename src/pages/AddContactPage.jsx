@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import {db as firebaseDB} from '../firebase'
 
+import './AddContactStyle.css'
+
 const initialStete = {
     name: '',
     email: '',
@@ -52,15 +54,24 @@ const AddContactPage = () =>{
 
     return (
         <div>
-            <form onSubmit={handelSubmit}>
-                <label htmlFor={'name'}>name</label>
-                <input id="name" placeholder="name" name={'name'} value={name || ''} type="text" onChange={handleInputChenge}/>
-                <label htmlFor={'email'}>email</label>
-                <input id="email" placeholder="email" name={'email'} value={email || ''} type="email" onChange={handleInputChenge}/>
-                <label placeholder="contact" htmlFor={'contact'}>contact</label>
-                <input placeholder="phone" id="contact" name={'contact'} value={contact || ''} type="tel" onChange={handleInputChenge}/>
-                <input type="submit" value={id ? 'update' : 'save'} />
-            </form>
+            <form className="input-form" onSubmit={handelSubmit}>
+                <div className="position">
+                    <label className="lbl-input" htmlFor={'name'}>name</label>
+                    <input className="input-add" id="name" placeholder="name" name={'name'} value={name || ''} type="text" onChange={handleInputChenge}/>
+                </div>
+                <div className="position">
+                    <label className="lbl-input" htmlFor={'email'}>email</label>
+                    <input className="input-add" id="email" placeholder="email" name={'email'} value={email || ''} type="email" onChange={handleInputChenge}/>
+                </div>
+                <div className="position">
+                    <label className="lbl-input" placeholder="contact" htmlFor={'contact'}>contact</label>
+                    <input className="input-add" placeholder="phone" id="contact" name={'contact'} value={contact || ''} type="tel" onChange={handleInputChenge}/> 
+                </div>
+                <div className="position">
+                    <input className="btn-save" type="submit" value={id ? 'update' : 'save'} />
+            
+                </div>
+            </form>    
 
         </div>
     )

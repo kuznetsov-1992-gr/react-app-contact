@@ -6,7 +6,7 @@ const AboutPage = () => {
 
     return(
         <div>
-
+            PAGE COMPANY
         </div>
     )
 }

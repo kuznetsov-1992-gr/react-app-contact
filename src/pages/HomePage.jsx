@@ -5,6 +5,8 @@ import {db as firebaseDB} from '../firebase'
 import {Link} from 'react-router-dom';
 import { toast } from "react-toastify";
 
+import './HomePage.css'
+
 const HomePage = () => {
 
     const [data, setData] = useState({});
@@ -38,7 +40,7 @@ const HomePage = () => {
     }
 
     return(
-        <div>
+        <div className="home-position">
            <table>
                 <thead>
                     <tr>
@@ -59,14 +61,14 @@ const HomePage = () => {
                                 <td>{data[id].contact}</td>
                                 <td>
                                     <Link to={`/update/${id}`}>
-                                        <button >
+                                        <button className="btn-edit" >
                                             Edit
                                         </button>
-                                        <button onClick={()=>onDelite(id)}>
+                                        <button className="btn-delite" onClick={()=>onDelite(id)}>
                                             delite
                                         </button>
                                         <Link to={`/view/${id}`}>
-                                            <button >
+                                            <button className="btn-view">
                                                 View
                                             </button>
                                         </Link>
