@@ -17,14 +17,14 @@ const AddContactPage = () =>{
 
     const [state, setState] = useState(initialStete);
 
-    const {name, email, contact} = state;
+    const {name, email, contact, indexAdress, adress} = state;
 
     const navigete = useNavigate();
     const {id} = useParams();
 
     const handelSubmit = (e) => {
        e.preventDefault();
-       if(!name || !email || !contact){
+       if(!name || !email || !contact ){
             toast.error('Please provide value into each input filed')
        }else{
         if(!id){
@@ -32,7 +32,8 @@ const AddContactPage = () =>{
                 if(err){
                     toast.error(err)
                 }else{
-                    toast.success('Contact added successfully')
+                    toast.success('Contact added successfully');
+                    navigete('/')
                 }
            }) 
         }else{
@@ -40,11 +41,13 @@ const AddContactPage = () =>{
                 if(err){
                     toast.error(err);
                 }else{
-                    toast.success(`Contact update successfully`)
+                    toast.success(`Contact update successfully`);
+                    navigete('/')
                 }
             })
         }
        }
+       
     }
 
     const handleInputChenge = (e) =>{
@@ -66,6 +69,14 @@ const AddContactPage = () =>{
                 <div className="position">
                     <label className="lbl-input" placeholder="contact" htmlFor={'contact'}>contact</label>
                     <input className="input-add" placeholder="phone" id="contact" name={'contact'} value={contact || ''} type="tel" onChange={handleInputChenge}/> 
+                </div>
+                <div className="position">
+                    <label className="lbl-input" htmlFor={'indrxAdress'}>index adress</label>
+                    <input className="input-add" id="indexAdress" placeholder="index" name={'indexAdress'} value={indexAdress || ''} type="text" onChange={handleInputChenge}/>
+                </div>
+                <div className="position">
+                    <label className="lbl-input" htmlFor={'adress'}>Adress</label>
+                    <input className="input-add" id="adres" placeholder="Серана, горогд, улица, дом" name={'adress'} value={adress || ''} type="text" onChange={handleInputChenge}/>
                 </div>
                 <div className="position">
                     <input className="btn-save" type="submit" value={id ? 'update' : 'save'} />

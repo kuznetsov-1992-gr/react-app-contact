@@ -54,11 +54,12 @@ const HomePage = () => {
                 <tbody>
                     {Object.keys(data).map((id, index)=>{
                         return(
-                           <tr key={id}>
-                                <th scope="row">{index + 1}</th>
+                           <tr key={id} className={data[id].adress ? 'adress-true' : ''}>
+                                <th scope="row" >{index + 1} </th>
                                 <td>{data[id].name}</td>
                                 <td>{data[id].email}</td>
                                 <td>{data[id].contact}</td>
+                                
                                 <td>
                                     <Link to={`/update/${id}`}>
                                         <button className="btn-edit" >
@@ -74,6 +75,7 @@ const HomePage = () => {
                                         </Link>
                                     </Link>
                                 </td>
+                              
 
                            </tr> 
                         )

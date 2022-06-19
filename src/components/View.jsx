@@ -41,6 +41,13 @@ const View = () => {
                 <strong>CONTACT:</strong> 
                 <span>{user.contact}</span>
                 <br />
+                <strong>{ user.indexAdress? 'INDEX: ' : ''}</strong> 
+                <span>{user.indexAdress}</span>
+                <br />
+                <strong>{user.adress ? 'ADRESS: ' : ''}</strong> 
+                <span>{user.adress}</span>
+                <br />
+              
                     <Link className="link-position"  to={'/'}>
                         <button className="beck-link" >Go beck </button>
                     </Link>
